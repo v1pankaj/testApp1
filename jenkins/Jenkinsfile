@@ -12,10 +12,13 @@ agent {
         }
     }
 
+    stages {
+
         stage('Build & TEST') {
             steps {
                     sh 'mvn clean install'
-		    sh 'mvn exec:java'
+		            sh 'mvn exec:java'
             }
         }
+    }
 }

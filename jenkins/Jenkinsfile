@@ -15,7 +15,7 @@ agent {
 
         stage('Build & TEST') {
             steps {
-                    sh 'mvn clean install'
+                    sh 'mvn -B clean install'
 		            sh 'mvn exec:java'
             }
         }

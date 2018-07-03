@@ -1,0 +1,21 @@
+pipeline {
+
+    options {
+        buildDiscarder logRotator(numToKeepStr: '10')
+        disableConcurrentBuilds()
+        ansiColor('xterm')
+    }
+
+agent {
+        node {
+            label 'docker-slave-macos-maven-java'
+        }
+    }
+
+        stage('Build & TEST') {
+            steps {
+                    sh 'mvn clean install'
+		    sh 'mvn exec:java'
+            }
+        }
+}
